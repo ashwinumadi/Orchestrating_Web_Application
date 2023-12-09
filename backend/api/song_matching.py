@@ -85,7 +85,7 @@ def song_matching(user, description):
 def get_user_queries(user):
     output_list = DBUserQueries.objects.filter(user=user).values('description')
     output = {
-        'query_list': output_list
+        'query_list': list(output_list)
     }
     return output
 
