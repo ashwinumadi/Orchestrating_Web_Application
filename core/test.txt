@@ -1,0 +1,36 @@
+ENV PATH="./node_modules/.bin:$PATH"
+
+
+FROM node:15.13-alpine
+WORKDIR /react
+COPY . .
+RUN npm run build
+
+
+deploy_app.yml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ashwin2415/frontend:latest
+          volumeMounts:
+            - name: react-build-volume
+              mountPath: /react/build
+      volumes:
+        - name: react-build-volume
+          persistentVolumeClaim:
+            claimName: react-build-volume
+
