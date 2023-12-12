@@ -37,7 +37,7 @@ export default class Login extends Component {
   }
   handleLoginPressed= async () => {
     const { handleLoggedin, handleUserName, history } = this.props;
-    const response = await axios.post('http://localhost:8000/api/login/', {
+    const response = await axios.post('http://34.171.144.89/api/login/', {
         username: this.state.username,
         password: this.state.password,
       });
@@ -61,7 +61,7 @@ export default class Login extends Component {
         password: this.state.password,
       }),
     };*/
-    const response = await axios.post('http://localhost:8000/api/create-user/', {
+    const response = await axios.post("http://34.171.144.89/api/create-user/", {
         username: this.state.username,
         password: this.state.password,
       });

@@ -26,8 +26,9 @@ class Layout extends Component {
           });
           
           // Now use 'instance' for your requests instead of 'axios'
-          instance.post(`http://localhost/api/logout/`).then(response => {
+          instance.post(`http://34.171.144.89/api/logout/`).then(response => {
               // Handle the response
+
             if (!response.state===200) {
                 
                 throw new Error('This is a custom error message')
