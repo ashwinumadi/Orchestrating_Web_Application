@@ -26,7 +26,7 @@ class Layout extends Component {
           });
           
           // Now use 'instance' for your requests instead of 'axios'
-          instance.post(`http://34.171.144.89/api/logout/`).then(response => {
+          instance.post(`http://34.16.65.113/api/logout/`).then(response => {
               // Handle the response
 
             if (!response.state===200) {

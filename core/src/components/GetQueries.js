@@ -48,7 +48,7 @@ export default class GetQueries extends Component {
       });
       
       // Now use 'instance' for your requests instead of 'axios'
-      instance.get(`http://34.171.144.89/api/get-user-queries/`).then(response => {
+      instance.get(`http://34.16.65.113/api/get-user-queries/`).then(response => {
           // Handle the response
           const data = response.data
           let l = [];

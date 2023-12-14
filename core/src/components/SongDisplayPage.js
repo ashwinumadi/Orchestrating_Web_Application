@@ -62,7 +62,7 @@ export default class SongDisplayPage extends Component {
       });
       
       // Now use 'instance' for your requests instead of 'axios'
-      instance.post(`http://34.171.144.89/api/logout/`).then(response => {
+      instance.post(`http://34.16.65.113/api/logout/`).then(response => {
           // Handle the response
         if (!response.state===200) {
           localStorage.removeItem('token');
@@ -91,7 +91,7 @@ export default class SongDisplayPage extends Component {
       });
       
       // Now use 'instance' for your requests instead of 'axios'
-      instance.post(`http://34.171.144.89/api/get-songs`, JSON.stringify({
+      instance.post(`http://34.16.65.113/api/get-songs`, JSON.stringify({
         songsDescription: this.state.songDescription
       })).then(response => {
           // Handle the response
