@@ -14,7 +14,15 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ashwin2415/backend:final_gke_v1
-          command: ["gunicorn", "backend.wsgi", "--bind", "0.0.0.0:8000"]
+          image: ashwin2415/backend:final_v1
+          imagePullPolicy: Always
+          command:
+            - "sh"
+            - "-c"
+            - |
+              python manage.py makemigrations &&
+              python manage.py migrate &&
+              python manage.py db_load &&
+              gunicorn backend.wsgi --bind 0.0.0.0:8000
           ports:
             - containerPort: 8000
