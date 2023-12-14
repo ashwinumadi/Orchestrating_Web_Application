@@ -10,8 +10,8 @@ UserModel = get_user_model()
 
 
 class DBSongs(models.Model):
-    song_name = models.CharField(max_length=50)
-    artist_name = models.CharField(max_length=50)
+    song_name = models.CharField(max_length=500)
+    artist_name = models.CharField(max_length=500)
     bpm = models.IntegerField(default=0)
     key = models.CharField(max_length=50)
     mode = models.CharField(max_length=50)
