@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ashwin2415/backend:final_v1
+          image: ashwin2415/backend:final_gke_v1
           imagePullPolicy: Always
           command:
             - "sh"

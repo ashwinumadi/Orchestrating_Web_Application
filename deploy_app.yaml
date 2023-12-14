@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ashwin2415/frontend:final_v1
+          image: ashwin2415/frontend:final_gke_v1
           imagePullPolicy: Always
           command: ["npm", "start"]
           ports:

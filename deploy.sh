@@ -10,3 +10,5 @@ kubectl apply -f redis_service.yaml
 kubectl apply -f worker_deployment.yaml
 kubectl apply -f ingress.yml
 kubectl apply -f ingress_backend.yml
+kubectl apply -f hpa_backend.yaml
+kubectl apply -f hpa_worker.yaml
