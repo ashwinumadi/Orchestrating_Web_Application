@@ -1,0 +1,27 @@
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: songs-worker
+spec:
+  selector:
+    matchLabels:
+      app: songs-worker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: songs-worker
+    spec:
+      containers:
+      - name: songs-worker
+        image: ashwin2415/songs_worker:final_gke_v1
+        imagePullPolicy: Always
+        #resources:
+        #  requests:
+        #    cpu: 1000m
+        #    memory: 1000Mi
+        env:
+        - name: REDIS_HOST
+          value: "redis-service"
+        - name: REDIS_PORT
+          value: "6379"
