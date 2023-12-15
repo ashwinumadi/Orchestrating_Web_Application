@@ -8,6 +8,7 @@ class MyUser(HttpUser):
         json_data = json.dumps({"username": "username", "password": "password"})
 
         # Perform authentication and obtain a JWT token
+        response = self.client.post("create-user/", json=json_data)
         response = self.client.post("login/", json=json_data)
         json_str = response._content.decode('utf-8')
         data_dict = json.loads(json_str)

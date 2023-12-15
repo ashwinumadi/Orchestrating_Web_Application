@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ashwin2415/backend:final_gke_v1
+          image: ashwin2415/backend:final_gke_v1.0
           imagePullPolicy: Always
           command:
             - "sh"
@@ -26,3 +26,10 @@ spec:
               gunicorn backend.wsgi --bind 0.0.0.0:8000
           ports:
             - containerPort: 8000
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "250m"

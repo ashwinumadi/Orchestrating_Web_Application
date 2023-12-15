@@ -30,7 +30,7 @@ class TestViews(TestCase):
         response = client.post(reverse('userlogin'),data)
         headers = {'Authorization': f'Bearer {response.data["access"]}', 
           'Content-Type': 'application/json',}
-        data = {'songsDescription': 'give me a song by Taylor Swift raja'}
+        data = {'songsDescription': 'give me a song by Taylor Swift now'}
         response = client.post(reverse('usersongs'),data,**headers)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, {'songs_list': [{'song': 'dont blame me'}]})
@@ -43,9 +43,9 @@ class TestViews(TestCase):
         )
         DBUserQueries.objects.create(data=[{'song': 'dont blame me'}],
                                      user=User.objects.create_user(username='testuser', password='testpassword'),
-                                     description='give me a song by Taylor Swift raja')
+                                     description='give me a song by Taylor Swift now')
         client = Client()
         response = client.get(reverse('userqueries'))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data, {'query_list': [{'description': 'give me a song by Taylor Swift raja'}]})
+        self.assertEqual(response.data, {'query_list': [{'description': 'give me a song by Taylor Swift now'}]})
         
